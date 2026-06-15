@@ -1,0 +1,52 @@
+[project]
+name = "jax_spectres"
+description = "A JAX-based rewrite of SpectRes, an algorithm for resampling spectral data from one spectral axis to another"
+authors = [
+    { name="Girish M. Duvvuri", email="girish.duvvuri@vanderbilt.edu" },
+]
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "GPL-3.0-or-later" }
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+dynamic = ["version"]
+license-files = ["LICENSE.txt"]
+dependencies = ["jax"]
+
+[project.urls]
+Homepage = "https://github.com/gmduvvuri/jax_spectres/"
+Issues = "https://github.com/gmduvvuri/jax_spectres/issues"
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "black",
+]
+test = ["pytest"]
+docs = [
+    "matplotlib",
+    "sphinx-book-theme",
+    "sphinx-design",
+    "sphinx-autoapi",
+]
+
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.hooks.vcs]
+version-file = "src/jax_spectres/jax_spectres_version.py"
+
+[tool.black]
+target-version = ["py310"]
+line-length = 88
