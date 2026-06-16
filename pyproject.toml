@@ -28,8 +28,16 @@ Issues = "https://github.com/gmduvvuri/jax_spectres/issues"
 dev = [
     "pytest",
     "black",
+    "flake8",
+    "spectres",
 ]
-test = ["pytest"]
+test = [
+    "pytest",
+    "numpy",
+    "spectres",
+    "timeit",
+    "matplotlib",
+]
 docs = [
     "matplotlib",
     "sphinx-book-theme",
@@ -50,3 +58,6 @@ version-file = "src/jax_spectres/jax_spectres_version.py"
 [tool.black]
 target-version = ["py310"]
 line-length = 88
+
+[tool.flake8]
+extend-ignore = ["E203", "E402", "W503"]
